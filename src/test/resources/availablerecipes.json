@@ -1,0 +1,89 @@
+{
+  "responseMessage": "Success",
+  "recordSize": 3,
+  "recipeList": [ 
+    {
+      "recipeId": 1,
+      "recipeName": "Cheese Omlete",
+      "isVeg": "N",
+      "noOfServings": 4,
+      "isActive": "Y",
+      "ingredientList": [
+        {
+          "ingredientId": 1,
+          "ingredientName": "Oil",
+          "isActive": "Y"
+        },
+        {
+          "ingredientId": 2,
+          "ingredientName": "Egg",
+          "isActive": "Y"
+        },
+        {
+          "ingredientId": 3,
+          "ingredientName": "Cheese",
+          "isActive": "Y"
+        }
+      ],
+      "recipeInstruction": {
+        "cookingMethod": "Oven",
+        "cookingSteps": "Add oil Egg and cheese and place it in oven",
+        "additionalInfo": "desc"
+      }
+    },
+    {
+      "recipeId": 2,
+      "recipeName": "Salmon dry fry",
+      "isVeg": "N",
+      "noOfServings": 2,
+      "isActive": "Y",
+      "ingredientList": [
+        {
+          "ingredientId": 1,
+          "ingredientName": "Oil",
+          "isActive": "Y"
+        },
+        {
+          "ingredientId": 4,
+          "ingredientName": "Spice Masala Dry",
+          "isActive": "Y"
+        },
+        {
+          "ingredientId": 6,
+          "ingredientName": "Salmon",
+          "isActive": "Y"
+        }
+      ],
+      "recipeInstruction": {
+        "cookingMethod": "Oven",
+        "cookingSteps": "Add oil Marinate fish with spice masala and then put it in oven",
+        "additionalInfo": "desc"
+      }
+    },
+    {
+      "recipeId": 3,
+      "recipeName": "French Fries",
+      "isVeg": "Y",
+      "noOfServings": 4,
+      "isActive": "Y",
+      "ingredientList": [
+        {
+          "ingredientId": 1,
+          "ingredientName": "Oil",
+          "isActive": "Y"
+        },
+        {
+          "ingredientId": 5,
+          "ingredientName": "Potato",
+          "isActive": "Y"
+        }
+      ],
+       "recipeInstruction": {
+        "cookingMethod": "Stove top",
+        "cookingSteps": "Add frozen potato in hot oil",
+        "additionalInfo": "desc updated"
+      }
+    }
+ ]
+ }
+  

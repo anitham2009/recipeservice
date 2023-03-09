@@ -1,0 +1,28 @@
+{
+      "recipeId": 3,
+      "recipeName": "French Fries",
+      "isVeg": "Y",
+      "noOfServings": 2,
+      "isActive": "Y",
+      "createdBy":"System",
+      "createdDate":"2023-03-07",
+      "updatedBy":"System",
+      "updatedDate":"2023-03-07",
+      "ingredientList": [
+        {
+          "ingredientId": 1,
+          "ingredientName": "Oil",
+          "isActive": "Y"
+        },
+        {
+          "ingredientId": 5,
+          "ingredientName": "Potato",
+          "isActive": "Y"
+        }
+      ],
+       "recipeInstruction": {
+        "cookingMethod": "Stove top",
+        "cookingSteps": "Add frozen potato in hot oil",
+        "additionalInfo": "desc"
+      }
+    }

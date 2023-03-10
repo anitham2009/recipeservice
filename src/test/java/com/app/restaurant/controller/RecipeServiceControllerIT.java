@@ -36,7 +36,7 @@ import com.app.restaurant.recipe.service.intf.IRecipeService;
 @AutoConfigureMockMvc
 @ExtendWith(MockitoExtension.class)
 @TestMethodOrder(OrderAnnotation.class)
-public class RepiceServiceControllerIT {
+public class RecipeServiceControllerIT {
 	@Autowired
 	private MockMvc mockMvc;
 	

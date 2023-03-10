@@ -1,4 +1,4 @@
-package com.app.restaurant.model;
+package com.app.restaurant.entity;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -8,12 +8,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import com.app.restaurant.entity.Ingredient;
-import com.app.restaurant.entity.Recipe;
-import com.app.restaurant.entity.RecipeIngredient;
-import com.app.restaurant.entity.RecipeIngredientId;
-import com.app.restaurant.entity.RecipeInstruction;
 
 /**
  * Test all classes in com.app.restaurant.entity package

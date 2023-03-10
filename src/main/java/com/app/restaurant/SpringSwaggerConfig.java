@@ -30,7 +30,7 @@ public class SpringSwaggerConfig {
           .build();                                           
     }
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Recipe Service").version("1.0")
+        return new ApiInfoBuilder().title("Recipe Service API").version("1.0")
                 .description("Manage Favourite Recipes")
                 .build();
     }

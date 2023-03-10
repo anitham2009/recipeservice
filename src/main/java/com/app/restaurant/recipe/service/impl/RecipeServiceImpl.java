@@ -319,15 +319,20 @@ public class RecipeServiceImpl implements IRecipeService {
 
 	/**
 	 * Get recipes by given condition.
+	 * 
 	 * <p>
-	 * For example: Scenario 1: If given input value for parameter isVeg = 'Y' then
-	 * it retrieves all vegetarian recipes from database. Scenario 2: If given input
+	 * For example:
+	 *  Scenario 1: If given input value for parameter isVeg = 'Y' then
+	 * it retrieves all vegetarian recipes from database.
+	 *  Scenario 2: If given input
 	 * value for parameter isVeg = 'Y' and noOfServings 4 and includeIngredient =
 	 * 'Potato' then it retrieves all recipes that can serve noOfServings >= 4 which
-	 * has Potato as ingredient. Scenario 3: If given input value for parameter
+	 * has Potato as ingredient. 
+	 * Scenario 3: If given input value for parameter
 	 * excludeIngredient = 'Salmon' and instruction = 'oven' then it retrieves all
 	 * recipes without "Salmon" as an ingredient that has "oven" in the
-	 * instructions. Scenario 4: If given input value for parameter isVeg = 'Y' and
+	 * instructions. 
+	 * Scenario 4: If given input value for parameter isVeg = 'Y' and
 	 * noOfServings 4 and includeIngredient = 'Potato' and excludeIngredient =
 	 * 'Salmon' and instruction = 'stove top' then it retrieves all vegetarian
 	 * recipes which has 'Potato' as ingredient and 'Salmon' not included in the

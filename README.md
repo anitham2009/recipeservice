@@ -1,7 +1,8 @@
-# Recipeservice overview
+# Recipe Service API overview
 - Recipeservice application is to manage favourite recipes
-- Handled recipe operations : create, update,delete,get all, get recipe by given conditions.
-- While create/update/delete/get recipe from the database it create/update/delete/get relevant recipe instruction,recipe ingredient information from the database.
+- Handled recipe operations : create, update,delete,get all recipes, filter recipes by given search conditions.
+- While create/update/delete/get recipe from the database it create/update/delete/get relevant recipe instruction,recipe ingredient information into/from the database.
+
 
 
 ## Technology Stack
@@ -30,15 +31,15 @@
   	- curl -X GET "http://localhost:8080/recipeservice/recipes"
   	
 ## Swagger Documentation
- - [Application URL](http://localhost:8080/recipeservice/swagger-ui/)
+ - [Application URL](http://localhost:8080/recipeservice/swagger-ui/) (Prerequisite: The application should be running on port number : 8080)
 ![Resource](images/RecipeServiceResource.png)
 
 ## Accessing H2 Database
- - [Database URL](http://localhost:8080/recipeservice/h2)
+ - [Database URL](http://localhost:8080/recipeservice/h2)  (Prerequisite: The application should be running on port number : 8080)
 
 
 ## Initial Data
- - [Download this](files/InitialData.xlsx)
+ - [Download Here](files/InitialData.xlsx)
  - On startup application will load initial data. You can Add/Modify existing data in src/main/resources/data.sql
  
 ## Achieved Functionalities
@@ -46,7 +47,7 @@
    - Update Recipe
    - Delete Recipe
    - Get All Recipes
-   - Get All Recipes by given Condition
+   - Filter All Recipes by given search condition
    - Integration Test (RecipeServiceControllerIT.java)
    - Unit test 
    - Swagger Documentation

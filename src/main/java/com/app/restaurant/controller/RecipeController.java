@@ -85,7 +85,7 @@ public class RecipeController {
             content = @Content)})
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<String> createRecipe(@Valid @RequestBody RecipeCreateVO input) {
-		logger.info("Inside createRecipe method", this.getClass());
+		logger.debug("Inside createRecipe method", this.getClass());
 		RecipeVO recipeData = new RecipeVO();
 		BeanUtils.copyProperties(input, recipeData);
 		recipeService.createRecipe(recipeData);
@@ -115,7 +115,7 @@ public class RecipeController {
             content = @Content)})
 	@PutMapping
 	public ResponseEntity<String> updateRecipe(@Valid @RequestBody RecipeUpdateVO input) {
-		logger.info("Inside updateRecipe method", this.getClass());
+		logger.debug("Inside updateRecipe method", this.getClass());
 		RecipeVO recipeData = new RecipeVO();
 		BeanUtils.copyProperties(input, recipeData);
 		recipeService.updateRecipe(recipeData);
@@ -140,7 +140,7 @@ public class RecipeController {
             content = @Content)})
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteRecipe(@PathVariable(value = "id") Long recipeId) {
-		logger.info("Inside deleteRecipe method", this.getClass());
+		logger.debug("Inside deleteRecipe method", this.getClass());
 		recipeService.deleteRecipe(recipeId);
 
 		return new ResponseEntity<>("Deleted recipe successfully", HttpStatus.OK);
@@ -167,7 +167,7 @@ public class RecipeController {
             content = @Content)})
 	@GetMapping
 	public ResponseEntity<RecipeResponse> getAllRecipes() {
-		logger.info("Inside getAllRecipes method", this.getClass());
+		logger.debug("Inside getAllRecipes method", this.getClass());
 		RecipeResponse recipeResponse = recipeService.getAllRecipes();
 		return new ResponseEntity<>(recipeResponse, HttpStatus.OK);
 	}
@@ -201,7 +201,7 @@ public class RecipeController {
 			  @RequestParam(name = "includeIngredient", required = false) String includeIngredient,
 			  @RequestParam(name = "exculdeIngredient", required = false) String excludeIngredient,
 			 @RequestParam(name = "instruction", required = false) String instruction) {
-		logger.info("Inside getRecipes method", this.getClass());
+		logger.debug("Inside getRecipes method", this.getClass());
 		RecipeResponse recipeResponse = recipeService.getRecipes(isVeg, noOfServings, includeIngredient,
 				excludeIngredient, instruction);
 		return new ResponseEntity<>(recipeResponse, HttpStatus.OK);

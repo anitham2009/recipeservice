@@ -68,7 +68,7 @@ public class RecipeServiceImpl implements IRecipeService {
 	 */
 	@Override
 	public void createRecipe(RecipeVO recipeDetail) {
-		logger.info("Inside create recipe method {}", this.getClass());
+		logger.debug("Inside create recipe method {}", this.getClass());
 		// Check recipe name existence before insert new recipe.
 		Recipe existingRecipes = findByRecipeName(recipeDetail.getRecipeName());
 		if (existingRecipes != null) {
@@ -77,7 +77,6 @@ public class RecipeServiceImpl implements IRecipeService {
 			throw new RecipeExistsException(RecipeConstants.RECIPE_EXISTS_ERR_MSG);
 		}
 		Recipe recipes = formRecipeInput(recipeDetail, null);
-		logger.info("Creating recipe");
 		recipeRepository.saveAndFlush(recipes);
 		logger.info("Recipe created");
 	}
@@ -99,7 +98,7 @@ public class RecipeServiceImpl implements IRecipeService {
 	 * @return Recipe
 	 */
 	private Recipe formRecipeInput(RecipeVO recipeDetail, Recipe existingRecipe) {
-		logger.info("Get All active ingredients");
+		logger.debug("Get All active ingredients");
 		List<Ingredient> ingredientInfoList = findAllActiveIngredients();
 		List<Long> ingredientIdList = Arrays.asList(recipeDetail.getIngredientIds());
 
@@ -176,13 +175,11 @@ public class RecipeServiceImpl implements IRecipeService {
 	 */
 	@Override
 	public void updateRecipe(RecipeVO recipeData) {
-		logger.info("Inside updateRecipe method {}", this.getClass());
-		logger.info("Get recipe by input id.");
+		logger.debug("Inside updateRecipe method {}", this.getClass());
 		Recipe existingRecipeInfo = findByRecipeId(recipeData.getRecipeId());
 		if (existingRecipeInfo != null) {
 			// Form recipe input to update.
 			Recipe recipeInfo = formRecipeInput(recipeData, existingRecipeInfo);
-			logger.info("update recipe.");
 			recipeRepository.saveAndFlush(recipeInfo);
 			logger.info("updated recipe");
 		} else {
@@ -226,7 +223,7 @@ public class RecipeServiceImpl implements IRecipeService {
 	 */
 	@Override
 	public void deleteRecipe(Long recipeId) {
-
+		logger.debug("Inside deleteRecipe method {}", this.getClass());
 		Recipe existingRecipeInfo = recipeRepository.findByRecipeId(recipeId);
 		if (existingRecipeInfo != null) {
 			recipeRepository.delete(existingRecipeInfo);
@@ -249,7 +246,7 @@ public class RecipeServiceImpl implements IRecipeService {
 	 */
 	@Override
 	public RecipeResponse getAllRecipes() {
-		logger.info("Get all recipes {}", this.getClass());
+		logger.debug("Get all recipes {}", this.getClass());
 		RecipeResponse recipeResponse = null;
 		// Get all active recipes.
 		List<Recipe> recipeInfoList = recipeRepository.findByIsActive("Y");
@@ -319,8 +316,9 @@ public class RecipeServiceImpl implements IRecipeService {
 
 	/**
 	 * Get recipes by given condition.
+	 * The service fetches all the recipes if no search term is a given 
+	 * and will filter the results based on the search term provided.
 	 * 
-	 * <p>
 	 * For example:
 	 *  Scenario 1: If given input value for parameter isVeg = 'Y' then
 	 * it retrieves all vegetarian recipes from database.
@@ -332,28 +330,14 @@ public class RecipeServiceImpl implements IRecipeService {
 	 * excludeIngredient = 'Salmon' and instruction = 'oven' then it retrieves all
 	 * recipes without "Salmon" as an ingredient that has "oven" in the
 	 * instructions. 
-	 * Scenario 4: If given input value for parameter isVeg = 'Y' and
-	 * noOfServings 4 and includeIngredient = 'Potato' and excludeIngredient =
-	 * 'Salmon' and instruction = 'stove top' then it retrieves all vegetarian
-	 * recipes which has 'Potato' as ingredient and 'Salmon' not included in the
-	 * ingredient that has 'stove top' in the instruction which serves >= 4 persons.
-	 * Scenario 5: If no input is given then retrieves all the recipes. Converts all
-	 * string inputs to lower case before sending into repository layer for case
-	 * insensitive search. If data is available in database for given condition then
-	 * convert result into response model of type RecipeIngredientInstructionVO
-	 * which has recipe and its ingredient and instruction detail, then set response
-	 * message "success" with record size. If data is not available in the database
-	 * then return empty list object of type RecipeIngredientInstructionVO and
-	 * response message "Recipe does not exists" with record size 0;
 	 * 
 	 * @return RecipeResponse
 	 */
 	@Override
 	public RecipeResponse getRecipes(String isVeg, Integer noOfServings, String includeIngredient,
 			String excludeIngredient, String instruction) {
-		logger.info("Inside getRecipes method {}", this.getClass());
+		logger.debug("Inside getRecipes method {}", this.getClass());
 		RecipeResponse recipeResponse = null;
-		logger.info("Get recipe by input condition");
 		List<Recipe> recipeInfoList = recipeRepository.findByRecipeDetail(StringUtils.lowerCase(isVeg), noOfServings,
 				StringUtils.lowerCase(includeIngredient), StringUtils.lowerCase(excludeIngredient),
 				StringUtils.lowerCase(instruction));

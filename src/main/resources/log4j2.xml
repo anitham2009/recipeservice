@@ -30,6 +30,10 @@
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
         </Root>
+     <!--    <Root level="debug">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
+        </Root> -->
 
         <!-- LOG "com.recipe*" at TRACE level -->
         <Logger name="com.recipe" level="trace"></Logger>

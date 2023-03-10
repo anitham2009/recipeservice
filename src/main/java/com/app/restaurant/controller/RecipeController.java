@@ -39,8 +39,10 @@ import com.app.restaurant.recipe.service.intf.IRecipeService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import springfox.documentation.annotations.ApiIgnore;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -196,11 +198,11 @@ public class RecipeController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error",
             content = @Content)})
 	@GetMapping("/getRecipes")
-	public ResponseEntity<RecipeResponse> getRecipes(@RequestParam(name = "isVeg", required = false) String isVeg,
-			 @RequestParam(name = "noOfServings", required = false) Integer noOfServings,
-			  @RequestParam(name = "includeIngredient", required = false) String includeIngredient,
-			  @RequestParam(name = "exculdeIngredient", required = false) String excludeIngredient,
-			 @RequestParam(name = "instruction", required = false) String instruction) {
+	public ResponseEntity<RecipeResponse> getRecipes(@ApiParam(example="Y/N") @RequestParam(name = "isVeg", required = false) String isVeg,
+			@ApiParam(example="2") @RequestParam(name = "noOfServings", required = false) Integer noOfServings,
+			 @ApiParam(example="cheese")   @RequestParam(name = "includeIngredient", required = false) String includeIngredient,
+			  @ApiParam(example="salmon")  @RequestParam(name = "exculdeIngredient", required = false) String excludeIngredient,
+			  @ApiParam(example="oven") @RequestParam(name = "instruction", required = false) String instruction) {
 		logger.debug("Inside getRecipes method", this.getClass());
 		RecipeResponse recipeResponse = recipeService.getRecipes(isVeg, noOfServings, includeIngredient,
 				excludeIngredient, instruction);

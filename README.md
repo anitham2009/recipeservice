@@ -16,7 +16,7 @@
 ## Entity Relationship Diagram
 ![Code Coverage](images/RecipeServiceERD.png)
 
-##Code Coverage
+## Code Coverage
 ![Entity Relationship Diagram](images/RecipeServiceCodeCoverage.png)
 
 ## Application Running Instructions

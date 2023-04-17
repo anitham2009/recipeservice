@@ -23,7 +23,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/azure'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
-    backendAzureRmSubscriptionId: 'a749545f-a985-48d2-b846-136d148df5f7'
+    backendAzureRmSubscriptionId: '0bb5e0a1-dc30-419d-bc8d-4c1a65f2bbbc'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'recipeservice-backend-rg'
     backendAzureRmResourceGroupLocation: 'westeurope'

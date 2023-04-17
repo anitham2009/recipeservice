@@ -26,6 +26,7 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/azure'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key = $(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
     backendAzureRmSubscriptionId: '0bb5e0a1-dc30-419d-bc8d-4c1a65f2bbbc'
@@ -36,3 +37,4 @@ steps:
     backendAzureRmContainerName: 'storageacctrscontainer'
     backendAzureRmKey: 'recipeservice-dev.tfstate'
     allowTelemetryCollection: true
+

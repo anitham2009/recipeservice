@@ -37,5 +37,12 @@ steps:
     backendAzureRmContainerName: 'storageacctrscontainer'
     backendAzureRmKey: 'recipeservice-dev.tfstate'
     allowTelemetryCollection: true
+- task: TerraformCLI@0
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/azure'
+    environmentServiceName: 'azure-resource-manager-service-connection'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+    providerAzureRmSubscriptionId: '0bb5e0a1-dc30-419d-bc8d-4c1a65f2bbbc'
 
 

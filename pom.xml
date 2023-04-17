@@ -17,6 +17,7 @@
 	<packaging>jar</packaging>
 	<properties>
 		<java.version>11</java.version>
+		<cucumber.version>7.5.0</cucumber.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -112,6 +113,21 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+         </dependency>
+        <dependency>
+        	<groupId>io.cucumber</groupId>
+        	<artifactId>cucumber-junit</artifactId>
+        	<version>${cucumber.version}</version>
+        </dependency>
+     <dependency>
+        	<groupId>io.cucumber</groupId>
+        	<artifactId>cucumber-java</artifactId>
+        	<version>${cucumber.version}</version>
+        </dependency>
+         <dependency>
+        	<groupId>io.cucumber</groupId>
+        	<artifactId>cucumber-spring</artifactId>
+        	<version>${cucumber.version}</version>
         </dependency>
 	</dependencies>
 
